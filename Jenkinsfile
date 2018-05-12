@@ -5,18 +5,21 @@ pipeline {
             steps {
                 sh 'echo Build'
                 sh 'env'
+                sh 'pwd'
+                sh 'find .'
+                sh 'cat "From Build Step" > info.txt'
             }
         }
         stage('Test') {
             steps {
                 sh 'echo Test'
-                sh 'env'
+                sh 'cat info.txt'
             }
         }
         stage('Deploy') {
             steps {
                 sh 'echo Deploy'
-                sh 'env'
+                sh 'cat info.txt'
             }
         }
     }
