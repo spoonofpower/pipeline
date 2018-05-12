@@ -7,7 +7,7 @@ pipeline {
                 sh 'env'
                 sh 'pwd'
                 sh 'find .'
-                sh 'cat "From Build Step" > info.txt'
+                sh 'echo "From Build Step" > info.txt'
             }
         }
         stage('Test') {
