@@ -1,7 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Checkout') {
+            dir('repos') {
+                git(
+                    url: 'https://github.com/apache/mynewt-core.git',
+                    branch: 'master'
+                )
+            }
+        stage('Build')
             steps {
                 sh 'echo Build'
                 sh 'env'
