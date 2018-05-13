@@ -2,11 +2,13 @@ pipeline {
     agent any
     stages {
         stage('Checkout') {
-            dir('repos') {
-                git(
-                    url: 'https://github.com/apache/mynewt-core.git',
-                    branch: 'master'
-                )
+            steps {
+                dir('repos') {
+                    git(
+                            url: 'https://github.com/apache/mynewt-core.git',
+                            branch: 'master'
+                       )
+                }
             }
         }
         stage('Build') {
