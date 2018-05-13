@@ -8,7 +8,8 @@ pipeline {
                     branch: 'master'
                 )
             }
-        stage('Build')
+        }
+        stage('Build') {
             steps {
                 sh 'echo Build'
                 sh 'env'
