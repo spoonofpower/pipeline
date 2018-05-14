@@ -38,7 +38,7 @@ pipeline {
                 sh 'echo Build'
                 sh 'env'
                 sh 'pwd'
-                sh 'find .'
+                sh 'ls repos'
                 sh 'echo "From Build Step" > info.txt'
             }
         }
