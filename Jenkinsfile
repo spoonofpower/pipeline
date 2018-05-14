@@ -5,7 +5,7 @@ pipeline {
             steps {
                 parallel(
                     core: {
-                        dir('repos') {
+                        dir('repos/mynewt-core') {
                             git(
                                 url: 'https://github.com/apache/mynewt-core.git',
                                 branch: 'master'
@@ -13,7 +13,7 @@ pipeline {
                         }
                     },
                     nimble: {
-                        dir('repos1') {
+                        dir('repos/mynewt-nimble') {
                             git(
                                 url: 'https://github.com/apache/mynewt-nimble.git',
                                 branch: 'master'
@@ -21,7 +21,7 @@ pipeline {
                         }
                     },
                     mcuboot: {
-                        dir('repos2') {
+                        dir('repos/mcuboot') {
                             git(
                                 url: 'https://github.com/runtimeco/mcuboot.git',
                                 branch: 'master'
@@ -29,7 +29,7 @@ pipeline {
                         }
                     },
                     arduino: {
-                        dir('repos3') {
+                        dir('repos/mynewt_arduino_zero') {
                             git(
                                 url: 'https://github.com/runtimeco/mynewt_arduino_zero.git',
                                 branch: 'master'
@@ -41,10 +41,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo Build'
+                sh 'cd repos/mynewt-core && git status'
+                sh 'cd repos/mynewt-nimble && git status'
+                sh 'cd repos/mcuboot && git status'
+                sh 'cd repos/mynewt_arduino_zero && git status'
                 sh 'env'
                 sh 'pwd'
-                sh 'ls repos'
                 sh 'echo "From Build Step" > info.txt'
             }
         }
