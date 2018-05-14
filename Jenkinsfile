@@ -72,7 +72,7 @@ pipeline {
         }
         stage('Run Jobs') {
             steps {
-                sh 'newt target show'
+                sh 'newt build testbench-coap-nrf52'
             }
         }
     }
