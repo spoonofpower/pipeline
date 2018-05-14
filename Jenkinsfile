@@ -49,6 +49,24 @@ pipeline {
                                 branch: 'master'
                             )
                         }
+                    },
+                    runtime: {
+                        dir("$GOPATH/src/github.com/runtimeinc/runtime") {
+                            git(
+                                url: 'https://github.com/runtimeinc/runtime.git',
+                                branch: 'master',
+                                credentialsId: 'github',
+                            )
+                        }
+                    },
+                    rt: {
+                        dir("$GOPATH/src/github.com/runtimeinc/rt") {
+                            git(
+                                url: 'https://github.com/runtimeinc/rt.git',
+                                branch: 'master',
+                                credentialsId: 'github',
+                            )
+                        }
                     }
                 )
             }
