@@ -32,7 +32,8 @@ pipeline {
                         dir('repos/mynewt_runtime') {
                             git(
                                 url: 'https://github.com/runtimeinc/mynewt_runtime.git',
-                                branch: 'master'
+                                branch: 'master',
+                                credentialsId: 'github',
                             )
                         }
                     },
