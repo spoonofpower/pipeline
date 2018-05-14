@@ -65,29 +65,24 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd repos/mynewt-core && git status && ls'
-                sh 'cd repos/mynewt-nimble && git status && ls'
-                sh 'cd repos/mcuboot && git status && ls'
-                sh 'cd repos/mynewt_arduino_zero && git status && ls'
-                sh 'cd repos/mynewt_runtime && git status && ls'
                 sh 'env'
                 sh 'pwd'
-                sh 'echo "From Build Step" > info.txt'
                 sh 'go install github.com/runtimeinc/runtime'
                 sh 'runtime version'
-
+                sh 'go get mynewt.apache.org/newt/newt'
+                sh 'newt version'
+                sh 'go get mynewt.apache.org/newtmgr/newtmgr'
+                sh 'newtmgr version'
             }
         }
         stage('Test') {
             steps {
                 sh 'echo Test'
-                sh 'cat info.txt'
             }
         }
         stage('Deploy') {
             steps {
                 sh 'echo Deploy'
-                sh 'cat info.txt'
             }
         }
     }
