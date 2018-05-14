@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        GOPATH = "$WORKSPACE/go"
+    }
+
     stages {
         stage('Checkout') {
             steps {
