@@ -4,10 +4,32 @@ pipeline {
         stage('Checkout') {
             steps {
                 dir('repos') {
-                    git(
-                            url: 'https://github.com/apache/mynewt-core.git',
-                            branch: 'master'
-                       )
+                    parallel(
+                        core: {
+                            git(
+                                url: 'https://github.com/apache/mynewt-core.git',
+                                branch: 'master'
+                            )
+                        },
+                        nimble: {
+                            git(
+                                url: 'https://github.com/apache/mynewt-nimble.git',
+                                branch: 'master'
+                           )
+                        },
+                        mcuboot: {
+                            git(
+                                url: 'https://github.com/runtimeco/mcuboot.git',
+                                branch: 'master'
+                           )
+                        },
+                        arduino: {
+                            git(
+                                url: 'https://github.com/runtimeco/mynewt_arduino_zero.git',
+                                branch: 'master'
+                           )
+                        }
+                    )
                 }
             }
         }
