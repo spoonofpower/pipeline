@@ -1,0 +1,8 @@
+### Package: targets/testbench-coap-nrf52
+
+syscfg.vals:
+    BLE_MAX_CONNECTIONS: "4"
+    LOG_LEVEL: "1"
+    OS_MAIN_STACK_SIZE: "1024"
+    TESTBENCH_BLE: "1"
+    TESTBENCH_BLE_NAME: "\"ci\""

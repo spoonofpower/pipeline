@@ -1,0 +1,26 @@
+project.name: "pipeline"
+
+repository.apache-mynewt-core:
+    type: git
+    vers: 0.0.0
+    url: git@github.com:apache/mynewt-core.git
+
+repository.apache-mynewt-nimble:
+    type: git
+    vers: 0.0.0
+    url: git@github.com:apache/mynewt-nimble.git
+
+repository.mynewt_runtime:
+    type: git
+    vers: 0.0.0
+    url: git@github.com:runtimeinc/mynewt_runtime.git
+
+repository.mcuboot:
+    type: git
+    vers: 0.0.0
+    url: git@github.com:runtimeco/mcuboot.git
+
+repository.mynewt_arduino_zero:
+    type: git
+    vers: 0.0.0
+    url: git@github.com:runtimeco/mynewt_arduino_zero.git

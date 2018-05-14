@@ -11,7 +11,7 @@ pipeline {
             steps {
                 parallel(
                     core: {
-                        dir('repos/mynewt-core') {
+                        dir('repos/apache-mynewt-core') {
                             git(
                                 url: 'https://github.com/apache/mynewt-core.git',
                                 branch: 'master'
@@ -19,7 +19,7 @@ pipeline {
                         }
                     },
                     nimble: {
-                        dir('repos/mynewt-nimble') {
+                        dir('repos/apache-mynewt-nimble') {
                             git(
                                 url: 'https://github.com/apache/mynewt-nimble.git',
                                 branch: 'master'
@@ -63,26 +63,16 @@ pipeline {
                 )
             }
         }
-        stage('Build') {
+        stage('Install Tools') {
             steps {
-                sh 'env'
-                sh 'pwd'
                 sh 'go install github.com/runtimeinc/runtime'
-                sh 'runtime version'
                 sh 'go get mynewt.apache.org/newt/newt'
-                sh 'newt version'
                 sh 'go get mynewt.apache.org/newtmgr/newtmgr'
-                sh 'newtmgr version'
             }
         }
-        stage('Test') {
+        stage('Run Jobs') {
             steps {
-                sh 'echo Test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo Deploy'
+                sh 'newt target show'
             }
         }
     }

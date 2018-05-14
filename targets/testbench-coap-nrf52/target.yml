@@ -1,0 +1,4 @@
+### Target: targets/testbench-coap-nrf52
+target.app: apps/testbench-rcc
+target.bsp: hw/bsp/custom-nrf52dk
+target.build_profile: optimized
