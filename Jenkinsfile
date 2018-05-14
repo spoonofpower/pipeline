@@ -13,7 +13,7 @@ pipeline {
                         }
                     },
                     nimble: {
-                        dir('repos') {
+                        dir('repos1') {
                             git(
                                 url: 'https://github.com/apache/mynewt-nimble.git',
                                 branch: 'master'
@@ -21,7 +21,7 @@ pipeline {
                         }
                     },
                     mcuboot: {
-                        dir('repos') {
+                        dir('repos2') {
                             git(
                                 url: 'https://github.com/runtimeco/mcuboot.git',
                                 branch: 'master'
@@ -29,7 +29,7 @@ pipeline {
                         }
                     },
                     arduino: {
-                        dir('repos') {
+                        dir('repos3') {
                             git(
                                 url: 'https://github.com/runtimeco/mynewt_arduino_zero.git',
                                 branch: 'master'
