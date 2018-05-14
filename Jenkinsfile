@@ -58,15 +58,6 @@ pipeline {
                                 credentialsId: 'github',
                             )
                         }
-                    },
-                    rt: {
-                        dir("$GOPATH/src/github.com/runtimeinc/rt") {
-                            git(
-                                url: 'https://github.com/runtimeinc/rt.git',
-                                branch: 'master',
-                                credentialsId: 'github',
-                            )
-                        }
                     }
                 )
             }
@@ -82,6 +73,9 @@ pipeline {
                 sh 'pwd'
                 sh 'echo "From Build Step" > info.txt'
                 sh "find $GOPATH/src"
+                sh 'go install github.com/runtimeinc/runtime'
+                sh 'runtime version'
+
             }
         }
         stage('Test') {
