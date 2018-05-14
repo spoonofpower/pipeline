@@ -41,10 +41,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd repos/mynewt-core && git status'
-                sh 'cd repos/mynewt-nimble && git status'
-                sh 'cd repos/mcuboot && git status'
-                sh 'cd repos/mynewt_arduino_zero && git status'
+                sh 'cd repos/mynewt-core && git status && ls'
+                sh 'cd repos/mynewt-nimble && git status && ls'
+                sh 'cd repos/mcuboot && git status && ls'
+                sh 'cd repos/mynewt_arduino_zero && git status && ls'
                 sh 'env'
                 sh 'pwd'
                 sh 'echo "From Build Step" > info.txt'
