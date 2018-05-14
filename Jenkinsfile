@@ -81,6 +81,7 @@ pipeline {
                 sh 'env'
                 sh 'pwd'
                 sh 'echo "From Build Step" > info.txt'
+                sh "find $GOPATH/src"
             }
         }
         stage('Test') {
