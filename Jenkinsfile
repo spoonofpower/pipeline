@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         GOPATH = "$WORKSPACE/go"
+        PATH = "$PATH:$GOPATH/bin"
     }
 
     stages {
@@ -72,7 +73,6 @@ pipeline {
                 sh 'env'
                 sh 'pwd'
                 sh 'echo "From Build Step" > info.txt'
-                sh "find $GOPATH/src"
                 sh 'go install github.com/runtimeinc/runtime'
                 sh 'runtime version'
 
