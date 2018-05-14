@@ -28,6 +28,14 @@ pipeline {
                             )
                         }
                     },
+                    mynewt_runtime: {
+                        dir('repos/mynewt_runtime') {
+                            git(
+                                url: 'https://github.com/runtimeinc/mynewt_runtime.git',
+                                branch: 'master'
+                            )
+                        }
+                    },
                     arduino: {
                         dir('repos/mynewt_arduino_zero') {
                             git(
